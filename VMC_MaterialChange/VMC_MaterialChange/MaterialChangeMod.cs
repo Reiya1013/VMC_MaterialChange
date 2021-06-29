@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using UnityEngine;
 
 using VMCMod;
@@ -12,7 +11,7 @@ using VMCMod;
     Author: "Reiya",
     Description: "アバターのMaterialを変更することで、MToon以外のshaderを使えるようにします",
     AuthorURL: "https://twitter.com/Reiya__",
-    PluginURL: "")]
+    PluginURL: null)]
 public class MaterialChangeMod : MonoBehaviour
 {
     //Shader Asset
@@ -49,15 +48,10 @@ public class MaterialChangeMod : MonoBehaviour
     [OnSetting]
     public void OnSetting()
     {
-        using (OpenFileDialog ofd = new OpenFileDialog()) { 
-            ofd.Filter = "MaterialChange files (*.mc)|*.mc";
-            ofd.Title = "MaterialChangeファイルを選択してください";
-            ofd.ShowDialog();
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                OtherMaterialLoad(ofd.FileName);
-            }
+        var filename = WindowsDialogs.OpenFileDialog("Select MaterialChange File", ".mc");
+        if (filename != null)
+        {
+            OtherMaterialLoad(filename);
         }
     }
 
