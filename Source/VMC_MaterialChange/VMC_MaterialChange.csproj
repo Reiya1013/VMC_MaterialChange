@@ -34,8 +34,13 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\VirtualMotionCapture0.50b10\VirtualMotionCapture_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\VirtualMotionCapture0.50b10\VirtualMotionCapture_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,9 +59,14 @@
     <Reference Include="VMCMod">
       <HintPath>..\..\..\..\VirtualMotionCapture0.50b10\VirtualMotionCapture_Data\Managed\VMCMod.dll</HintPath>
     </Reference>
+    <Reference Include="VRM, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\VirtualMotionCapture0.50b10\VirtualMotionCapture_Data\Managed\VRM.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MaterialChangeMod.cs" />
+    <Compile Include="OtherMaterialChangeSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

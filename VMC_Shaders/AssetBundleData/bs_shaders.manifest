@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 440014057
+CRC: 31917543
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8a142a27387acc8880c42d7f9b5ab9b2
+    Hash: bc5901badac925f519d3763ca89b515e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7e9ee104d6bb707fb2602b751e6f78b1
@@ -13,10 +13,12 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_TransClipping_Tess_StencilMask.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/Reflex Shader 2 Transparent.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_DoubleShadeWithFeather_Mobile_TransClipping_StencilMask.shader
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/EmissiveFreakCutout.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_DoubleShadeWithFeather_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_Tess_StencilMask.shader
+- Assets/MaterialChange/Shaders/SunaoShader/Shader/Sunao_Shader_Transparent_Gameing.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_DoubleShadeWithFeather_Transparent_Tess.shader
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/Opaque.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_Tess_Light_StencilMask.shader
@@ -27,6 +29,7 @@ Assets:
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/EmissiveFreakFadeRefracted.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_OutlineObject_Tess.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_AngelRing_TransClipping_Tess_StencilOut.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/Reflex Shader 2 Cutout.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_DoubleShadeWithFeather_Transparent_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_AngelRing_Tess_Light.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_StencilOut.shader
@@ -43,6 +46,7 @@ Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_AngelRing_TransClipping.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_Transparent_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_ShadingGradeMap_TransClipping.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/Reflex Shader 2 Stencil Writer.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_Tess.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_OutlineObject_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_DoubleShadeWithFeather_Clipping_StencilOut.shader
@@ -50,11 +54,13 @@ Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_DoubleShadeWithFeather_TransClipping_StencilMask.shader
 - Assets/MaterialChange/Shaders/SunaoShader/Shader/Sunao_Shader_Stencil_W.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_AngelRing_Tess_Light_StencilOut.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/no_outline/Transparent no_outline.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_DoubleShadeWithFeather_Tess.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_TransClipping_Tess_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_DoubleShadeWithFeather_Clipping_Tess_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_ShadingGradeMap_AngelRing_TransClipping.shader
+- Assets/MaterialChange/Shaders/SeisoShader/AAShader3DENSHOW_SHINseiso.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_DoubleShadeWithFeather_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_TransClipping_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_AngelRing_Tess.shader
@@ -69,13 +75,17 @@ Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_DoubleShadeWithFeather_Clipping.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_TransClipping_Tess.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_ShadingGradeMap_StencilMask.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/no_outline/Cutout no_outline.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_Transparent_StencilOut.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/no_outline/Stencil Reader no_outline.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_ShadingGradeMap_Mobile.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_TransClipping.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_DoubleShadeWithFeather_Mobile_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_Tess_StencilMask.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/Reflex Shader 2 Stencil Reader.shader
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/EmissiveFreakStencilReader.shader
 - Assets/MaterialChange/Shaders/SunaoShader/Shader/Sunao_Shader_Opaque.shader
+- Assets/MaterialChange/Shaders/SeisoShader/AAShader3DENSHOW_seiso.shader
 - Assets/MaterialChange/Shaders/Crystal Shader/Crystal Shader.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_AngelRing_Tess_TransClipping.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_DoubleShadeWithFeather_Clipping_Tess.shader
@@ -85,7 +95,6 @@ Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_Clipping_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_DoubleShadeWithFeather_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_ShadingGradeMap_Mobile_TransClipping_StencilMask.shader
-- Assets/MaterialChange/Shaders/Poiyomi/Pro/Shaders/S_Poiyomi_Toon.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_ShadingGradeMap_Mobile_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_DoubleShadeWithFeather_TransClipping_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap.shader
@@ -101,6 +110,7 @@ Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_TransClipping_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_Clipping_Tess_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_AngelRing_Tess.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/no_outline/Stencil Writer no_outline.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_DoubleShadeWithFeather_Clipping_Tess_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_ShadingGradeMap_AngelRing_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_Transparent_Tess.shader
@@ -110,7 +120,6 @@ Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_AngelRing.shader
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/Cutout.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_DoubleShadeWithFeather_Tess_StencilMask.shader
-- Assets/MaterialChange/Shaders/Poiyomi/Extras/InvisStencil.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_TransClipping_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_Tess_Light_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_AngelRing_TransClipping_Tess.shader
@@ -123,11 +132,12 @@ Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_TransClipping_Tess_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_AngelRing_TransClipping_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_Tess_Light.shader
-- Assets/MaterialChange/Shaders/Poiyomi/Extras/MasterScanner.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_Transparent.shader
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/EmissiveFreakFade.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_Tess_StencilOut.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/Reflex Shader 2.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_DoubleShadeWithFeather_StencilOut.shader
+- Assets/MaterialChange/Shaders/GamingEffectShader/GamingEffectCutout.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_Tess_Light_StencilOut.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_DoubleShadeWithFeather_Transparent.shader
@@ -138,8 +148,11 @@ Assets:
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/StencilWriter.shader
 - Assets/MaterialChange/Shaders/SunaoShader/Shader/Sunao_Shader_Stencil_R.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/ToonColor_ShadingGradeMap_AngelRing_Tess_StencilOut.shader
+- Assets/MaterialChange/Shaders/SunaoShader/Shader/Sunao_Shader_Opaque_Gameing.shader
+- Assets/MaterialChange/Shaders/GamingEffectShader/GamingEffectFade.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_DoubleShadeWithFeather_Mobile_TransClipping.shader
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/Fade.shader
+- Assets/MaterialChange/Shaders/GamingEffectShader/GamingEffectOpaque.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_ShadingGradeMap_TransClipping_StencilMask.shader
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/FadeRefracted.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_DoubleShadeWithFeather_TransClipping_StencilOut.shader
@@ -148,6 +161,7 @@ Assets:
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_Tess_Light_StencilMask.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_DoubleShadeWithFeather_Clipping_Tess.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Toon_OutlineObject.shader
+- Assets/MaterialChange/Shaders/Reflex Shader 2/no_outline/Opaque no_outline.shader
 - Assets/MaterialChange/Shaders/arktoon Shaders/Shaders/EmissiveFreakOpaque.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/ToonColor_DoubleShadeWithFeather_TransClipping.shader
 - Assets/MaterialChange/Shaders/UTS/Shader/Tess/Toon_ShadingGradeMap_AngelRing_Tess_StencilOut.shader
