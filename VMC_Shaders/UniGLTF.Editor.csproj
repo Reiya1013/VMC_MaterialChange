@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CC242391-6704-3094-B0CD-FB1A4B57F099}</ProjectGuid>
+    <ProjectGuid>{AF256626-4DE4-55C5-801C-201283045E1A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UniGLTF.Editor</AssemblyName>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.8.2.0</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>4.11.3.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.4.20f1</UnityVersion>
@@ -329,19 +329,19 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.20f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -703,7 +703,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UniGLTF.csproj">
-      <Project>{261DA089-97DF-64BD-4696-E5BD44092BD6}</Project>
+      <Project>{941E7275-9CA9-1792-6B3D-6604CAF26B07}</Project>
       <Name>UniGLTF</Name>
     </ProjectReference>
   </ItemGroup>

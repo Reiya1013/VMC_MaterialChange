@@ -50,11 +50,19 @@
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\VirtualMotionCapture0.50b10\VirtualMotionCapture_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\VirtualMotionCapture0.50r1\VirtualMotionCapture_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>..\..\..\..\VirtualMotionCapture0.50b10\VirtualMotionCapture_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\..\VirtualMotionCapture0.50b10\VirtualMotionCapture_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\VirtualMotionCapture0.50r1\VirtualMotionCapture_Data\Managed\UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="VMCMod">
       <HintPath>..\..\..\..\VirtualMotionCapture0.50b10\VirtualMotionCapture_Data\Managed\VMCMod.dll</HintPath>
@@ -65,9 +73,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputManager.cs" />
     <Compile Include="MaterialChangeMod.cs" />
     <Compile Include="OtherMaterialChangeSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="alphaon" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="bs_shaders" />

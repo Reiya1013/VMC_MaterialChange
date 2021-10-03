@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 3402815460
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d30e33de70c153b2582808ec161a2fc0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 51a16e16d5113854a16091e54ae5bb0d
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/MaterialChange/Scripts/Material/AlphaOn.mat
+Dependencies: []

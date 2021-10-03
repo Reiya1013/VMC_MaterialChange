@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A7F0E413-8414-610B-3A32-7AFFEEB6AB0F}</ProjectGuid>
+    <ProjectGuid>{94BA9E0B-0380-97DE-FB41-6883EE5342ED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UniVRM.Editor</AssemblyName>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.8.2.0</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>4.11.3.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.4.20f1</UnityVersion>
@@ -337,19 +337,19 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.20f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders2018/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/reiya/Documents/VirtualMotionCapture_Mod/VMC_MaterialChange/VMC_Shaders/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -711,31 +711,31 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="VRM.csproj">
-      <Project>{70AED2C4-7030-A8BB-3137-4E722AFA8FB9}</Project>
+      <Project>{37D01A94-5E02-A756-49A9-A942C6B4800C}</Project>
       <Name>VRM</Name>
     </ProjectReference>
     <ProjectReference Include="UniHumanoid.csproj">
-      <Project>{BD8D53DB-C5EF-9DC2-D84F-FA5E0CAE1D7E}</Project>
+      <Project>{93AEF807-39F5-85BE-9953-D12AB2BEF59B}</Project>
       <Name>UniHumanoid</Name>
     </ProjectReference>
     <ProjectReference Include="MeshUtility.csproj">
-      <Project>{439A2788-10C6-0B01-8A80-B38EF0C0147D}</Project>
+      <Project>{8686F2CC-142A-B342-58CA-FFBFDB39E431}</Project>
       <Name>MeshUtility</Name>
     </ProjectReference>
     <ProjectReference Include="MeshUtility.Editor.csproj">
-      <Project>{B88CE4B4-E8DF-43B2-99F5-A6529803DE34}</Project>
+      <Project>{FBCC8076-7764-B5FC-B861-F35CD64458C3}</Project>
       <Name>MeshUtility.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UniUnlit.csproj">
-      <Project>{AE0BBC2D-8E89-268F-13B7-18A1CC08D440}</Project>
+      <Project>{AD5F536A-0CB7-FD13-3610-9976B1F1FE9C}</Project>
       <Name>UniUnlit</Name>
     </ProjectReference>
     <ProjectReference Include="UniGLTF.csproj">
-      <Project>{261DA089-97DF-64BD-4696-E5BD44092BD6}</Project>
+      <Project>{941E7275-9CA9-1792-6B3D-6604CAF26B07}</Project>
       <Name>UniGLTF</Name>
     </ProjectReference>
     <ProjectReference Include="UniGLTF.Editor.csproj">
-      <Project>{CC242391-6704-3094-B0CD-FB1A4B57F099}</Project>
+      <Project>{AF256626-4DE4-55C5-801C-201283045E1A}</Project>
       <Name>UniGLTF.Editor</Name>
     </ProjectReference>
   </ItemGroup>

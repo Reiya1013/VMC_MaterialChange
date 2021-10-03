@@ -498,6 +498,15 @@ Shader "BeatSaber/GamingEffect/_Extra/EmissiveFreak/Opaque" {
 
         // Hidden
         [Space(10)][Toggle(_)] _HiddenEnable ("Hidden Mode", Int ) = 0
+        
+        [SToggle]
+		_EnableGeometry     ("Enable Geometry"					, int) = 0
+		_Destruction		("Destruction"						, Range(0,1))= 0.0
+		_ScaleFactor		("Scale Factor"						, Range(0,1))= 0.0
+		_RotationFactor		("Rotation Factor"					, Range(0,1))= 0.0
+		_PositionFactor		("Position Factor"					, Range(0,1))= 0.0
+		_PositionAdd		("Position AddPoint"				, Range(-1,1))= 0.0
+
 
         // Version
         [HideInInspector]_Version("[hidden] Version", int) = 0

@@ -1,7 +1,10 @@
 ManifestFileVersion: 0
-CRC: 1741088604
+CRC: 1171739094
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: bs_shaders
+      Dependencies: {}
+    Info_1:
+      Name: alphaon
       Dependencies: {}

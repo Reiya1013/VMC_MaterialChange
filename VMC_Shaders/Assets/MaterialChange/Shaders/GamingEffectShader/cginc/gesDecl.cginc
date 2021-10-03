@@ -52,6 +52,15 @@
 #   define REF_EMISSIONCOLOR _EmissionColor
 #endif
 
+//----ジオメトリシェーダー用
+	uniform bool      _EnableGeometry;
+	uniform float     _Destruction;
+	uniform float     _ScaleFactor;
+	uniform float     _RotationFactor;
+	uniform float     _PositionFactor;
+	uniform float     _PositionAdd;
+
+
 // Alpha Mask
 UNITY_DECLARE_TEX2D_NOSAMPLER(_AlphaMask); uniform float4 _AlphaMask_ST;
 
@@ -387,5 +396,6 @@ uniform float _EmissiveFreak5BlinkOutMix;
 uniform float _EmissiveFreak5BlinkIn;
 uniform float _EmissiveFreak5BlinkInMix;
 uniform float _EmissiveFreak5HueShift;
+
 
 #endif

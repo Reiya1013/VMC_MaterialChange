@@ -4,4 +4,7 @@
 
 # 連絡先
 質問等がありましたら、以下連絡をお願いします。  
-Twitter:[Reiya__](https://twitter.com/Reiya__)
+Twitter:[Reiya__](https://twitter.com/Reiya__)  
+
+# Licence
+MIT Livense

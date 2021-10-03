@@ -12,7 +12,7 @@ namespace VMC_MaterialChange
 
     [VMCPlugin(
     Name: "MaterialChange",
-    Version: "0.0.4",
+    Version: "0.0.6",
     Author: "Reiya",
     Description: "アバターのMaterialを変更することで、MToon以外のshaderを使えるようにします",
     AuthorURL: "https://twitter.com/Reiya__",
@@ -29,11 +29,20 @@ namespace VMC_MaterialChange
         private Dictionary<string, Material> otherMaterials2 = new Dictionary<string, Material>();
         private Dictionary<string, Material> otherMaterials3 = new Dictionary<string, Material>();
         private List<string> MaterialsName = new List<string>();
+        //設定アニメーション
+        RuntimeAnimatorController ReturnAnimatorController = null; //ロード取得用
+        private RuntimeAnimatorController otherAnimation1;
+        private RuntimeAnimatorController otherAnimation2;
+        private RuntimeAnimatorController otherAnimation3;
 
         //モデル情報の保持
         private Dictionary<Renderer, Material[]> DefaultMaterials = new Dictionary<Renderer, Material[]>();
         private GameObject Model;
         private string VRMMetaKey;
+
+        //入力制御
+        private InputManager inputManager;
+
         private void Awake()
         {
             VMCEvents.OnModelLoaded += OnModelLoaded;
@@ -49,8 +58,18 @@ namespace VMC_MaterialChange
         
             ShaderLoad();
             OtherMaterialChangeSetting.Instance.LoadConfiguration();
+
+            SteamVR2Input.Instance.KeyDownEvent += ControllerAction_KeyDown;
+
+            //コントローラ取得
+            inputManager = new GameObject(nameof(InputManager)).AddComponent<InputManager>();
+            inputManager.BeginGameCoreScene();
         }
 
+        private async void ControllerAction_KeyDown(object sender, OVRKeyEventArgs e)
+        {
+            Debug.Log($"ControllerAction {e.Name}");
+        }
 
         bool isShift = false;
         bool isKey = false;
@@ -72,6 +91,12 @@ namespace VMC_MaterialChange
                 else if (e.KeyCode == (int)Keys.D2) SetOtherMaterial(otherMaterials2);
                 else if (e.KeyCode == (int)Keys.D3) SetOtherMaterial(otherMaterials3);
             }
+
+            if (e.KeyCode == (int)Keys.T)
+            {
+                ToggleAnimation();
+            }
+
         }
 
         private void KeyboardAction_KeyUp(object sender, KeyboardEventArgs e)
@@ -87,26 +112,59 @@ namespace VMC_MaterialChange
 
 
 
+        Int32 RightTriggerDownCount;
+        float RightTriggerDownTime;
+        /// <summary>
+        /// 1秒以内に3回右トリガーされたら、次のアニメーションへ遷移
+        /// </summary>
+        private void ControllerInput()
+        {
+            if (inputManager.GetLeftGripClicked())
+
+            if (inputManager.GetRightGripClicked())
+
+
+            if ((bool)(inputManager.GetRightTriggerClicked()))
+            {
+                RightTriggerDownCount += 1;
+                RightTriggerDownTime = 0;   //最後に入力があってから１秒経過しても３回目入力しなかった場合のみクリアするようにする
+
+                if (RightTriggerDownCount >= 3)
+                {
+                    RightTriggerDownCount = 0;
+
+                    ToggleAnimation();
+                }
+
+            }
+
+
+            if (RightTriggerDownCount != 0)
+                RightTriggerDownTime += Time.deltaTime;
+
+            if (RightTriggerDownTime > 1.0f)
+            {
+                RightTriggerDownCount = 0;
+                RightTriggerDownTime = 0;
+            }
+        }
 
         bool OldInput = false;
         void Update()
         {
+            ControllerInput();
         }
         private void OnEnable()
         {
-            Application.logMessageReceived += OnLogMessageReceived;
         }
 
         private void OnDisable()
         {
             KeyboardAction.KeyDownEvent -= KeyboardAction_KeyDown;
             KeyboardAction.KeyUpEvent -= KeyboardAction_KeyUp;
-            Application.logMessageReceived -= OnLogMessageReceived;
         }
 
-        private void OnLogMessageReceived(string logString, string stackTrace, LogType type)
-        {
-        }
+
 
         [OnSetting]
         public void OnSetting()
@@ -119,11 +177,21 @@ namespace VMC_MaterialChange
             string filename2 = "";
             string filename3 = "";
 
-            if (!FileLoad(otherMaterials, ref filename1, "(1st ChangeFile)")) return;
-            if (FileLoad(otherMaterials2, ref filename2, "(2nd ChangeFile)"))
-                FileLoad(otherMaterials3, ref filename3, "(3rd ChangeFile)");
+            Debug.Log("OnSetting OtherMaterials Load Start");
 
+            if (!FileLoad(otherMaterials, ref filename1, "(1st ChangeFile)")) return;
+            otherAnimation1 = ReturnAnimatorController;
+            if (FileLoad(otherMaterials2, ref filename2, "(2nd ChangeFile)"))
+            {
+                otherAnimation2 = ReturnAnimatorController;
+                FileLoad(otherMaterials3, ref filename3, "(3rd ChangeFile)");
+                otherAnimation3 = ReturnAnimatorController;
+            }
+
+            Debug.Log("OnSetting OtherMaterials Load End");
             SetOtherMaterial(otherMaterials);
+            SetAnimation(otherAnimation1);
+            Debug.Log("OnSetting SetOtherMaterials Load End");
 
             OtherSettingSet(filename1, filename2, filename3);
 
@@ -204,10 +272,11 @@ namespace VMC_MaterialChange
         {
             if (currentModel == null) return;
             Model = currentModel;
-            foreach (Renderer renderer in Model.GetComponentsInChildren<Renderer>())
-            {
-                DefaultMaterials.Add(renderer, renderer.sharedMaterials);
-            }
+            //使う予定だけどまだ使ってない
+            //foreach (Renderer renderer in Model.GetComponentsInChildren<Renderer>())
+            //{
+            //    DefaultMaterials.Add(renderer, renderer.sharedMaterials);
+            //}
 
             //自動MaterialChangeONの場合ファイル読み込みを行って設定する
             var meta = Model.GetComponent<VRM.VRMMeta>();
@@ -218,10 +287,16 @@ namespace VMC_MaterialChange
                     if (OtherMaterialChangeSetting.Instance.OtherParameter.List.ContainsKey(VRMMetaKey))
                     {
                         OtherMaterialLoad(OtherMaterialChangeSetting.Instance.OtherParameter.List[VRMMetaKey].FileAddress1, otherMaterials);
+                        otherAnimation1 = ReturnAnimatorController;
                         OtherMaterialLoad(OtherMaterialChangeSetting.Instance.OtherParameter.List[VRMMetaKey].FileAddress2, otherMaterials2);
+                        otherAnimation2 = ReturnAnimatorController;
                         OtherMaterialLoad(OtherMaterialChangeSetting.Instance.OtherParameter.List[VRMMetaKey].FileAddress3, otherMaterials3);
+                        otherAnimation3 = ReturnAnimatorController;
                         if (otherMaterials.Count != 0)
+                        {
                             SetOtherMaterial(otherMaterials);
+                            SetAnimation(otherAnimation1);
+                        }
                     }
             }
 
@@ -239,15 +314,21 @@ namespace VMC_MaterialChange
         public void OtherMaterialLoad(string filename, Dictionary<string, Material> set)
         {
             set.Clear();
-            if (filename == "") return;
+            if (string.IsNullOrEmpty(filename)) return;
             AssetBundle assetBundle = AssetBundle.LoadFromFile(filename);
             AssetsMaterial = assetBundle.LoadAllAssets();
             assetBundle.Unload(false);
+            ReturnAnimatorController = null;
             foreach (var asset in AssetsMaterial)
             {
                 if (asset is Material material)
                 {
                     set[material.name] = material;
+                }
+                else //if (asset is RuntimeAnimatorController Anime)
+                {
+                    ReturnAnimatorController = (RuntimeAnimatorController)asset;
+                    Debug.Log($"OtherMaterialLoad {ReturnAnimatorController.name}");
                 }
             }
         }
@@ -257,28 +338,82 @@ namespace VMC_MaterialChange
         /// </summary>
         private void SetOtherMaterial(Dictionary<string, Material> set)
         {
-            if (set == null) return;
-            if (Model == null) return;
-            foreach (Renderer renderer in Model.GetComponentsInChildren<Renderer>(true))
-            {
-                Material[] newMaterials = new Material[renderer.sharedMaterials.Length];
-                for (int index = 0; index < renderer.sharedMaterials.Length; index++)
+            try { 
+
+                if (set == null) return;
+                if (Model == null) return;
+
+                foreach (Renderer renderer in Model.GetComponentsInChildren<Renderer>(true))
                 {
-                    if (set.ContainsKey(renderer.sharedMaterials[index].name))
+                    Debug.Log($"{renderer.name}");
+                    Material[] newMaterials = new Material[renderer.sharedMaterials.Length];
+                    for (int index = 0; index < renderer.sharedMaterials.Length; index++)
                     {
-                        newMaterials[index] = set[renderer.sharedMaterials[index].name];
-                        //同名shader(BeatSaber用シェーダーが来た場合、α値有りのシェーダーに置き換えなおす)
-                        if (Shaders.ContainsKey(newMaterials[index].shader.name))
-                            newMaterials[index].shader = Shaders[newMaterials[index].shader.name];
+                        if (set.ContainsKey(renderer.sharedMaterials[index].name))
+                        {
+                            Debug.Log($"SetOtherMaterial MaterialChange MaterialName:{renderer.sharedMaterials[index].name}");
+                            newMaterials[index] = set[renderer.sharedMaterials[index].name];
+                            //同名shader(BeatSaber用シェーダーが来た場合、α値有りのシェーダーに置き換えなおす)
+                            if (Shaders.ContainsKey(newMaterials[index].shader.name))
+                                {
+                                    Debug.Log($"SetOtherMaterial BeatSaberShader Change ShaderName:{newMaterials[index].shader.name}");
+                                    newMaterials[index].shader = Shaders[newMaterials[index].shader.name];
+                                }
 
+                            }
+                        else
+                            newMaterials[index] = renderer.sharedMaterials[index];
                     }
-                    else
-                        newMaterials[index] = renderer.sharedMaterials[index];
+                    renderer.sharedMaterials = newMaterials;
                 }
-                renderer.sharedMaterials = newMaterials;
-            }
 
+            }
+            catch (Exception)
+            { Debug.Log($"OtherMaterialChange失敗"); }
         }
+
+        #region Animator設定
+        Animator VRMAnimator;
+        Int32 LayerNo;
+        private void SetAnimation(RuntimeAnimatorController animation)
+        {
+            Debug.Log($"SetAnimation Start");
+            if (animation == null) return;
+
+            //Animatorがなければ作成
+             Debug.Log($"SetAnimation Get");
+            var animator = Model.GetComponent<Animator>();
+            if (animator == null)
+                Model.AddComponent<Animator>();
+
+            VRMAnimator = animator;
+
+            //Animationが登録済みの場合でレイヤーMaterialChangeがある場合は削除する
+             Debug.Log($"SetAnimation Set");
+            VRMAnimator.runtimeAnimatorController = animation;
+            LayerNo = VRMAnimator.GetLayerIndex("MaterialChange");
+             Debug.Log($"SetAnimation End");
+        }
+
+        /// <summary>
+        /// 次のアニメーションへ遷移
+        /// </summary>
+        public void ToggleAnimation()
+        {
+            //アニメーターがなかったり、遷移中は実行しない
+            if (VRMAnimator == null) return;
+            if (VRMAnimator.IsInTransition(LayerNo)) return;
+
+            var max = VRMAnimator.GetInteger("MaxCount");
+            var now = VRMAnimator.GetInteger("SetPoint");
+            var set = (int)((now + 1) % (max + 1));
+            set = set == 0 ? 1 : set;
+            VRMAnimator.SetInteger("SetPoint", set);
+             Debug.Log($"ToggleAnimation SetPoint:{set}");
+        }
+
+        #endregion
+
     }
 }
 
