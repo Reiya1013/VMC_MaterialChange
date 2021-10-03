@@ -73,7 +73,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputManager.cs" />
     <Compile Include="MaterialChangeMod.cs" />
     <Compile Include="OtherMaterialChangeSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

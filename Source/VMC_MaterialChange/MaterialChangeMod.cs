@@ -40,9 +40,6 @@ namespace VMC_MaterialChange
         private GameObject Model;
         private string VRMMetaKey;
 
-        //入力制御
-        private InputManager inputManager;
-
         private void Awake()
         {
             VMCEvents.OnModelLoaded += OnModelLoaded;
@@ -60,15 +57,85 @@ namespace VMC_MaterialChange
             OtherMaterialChangeSetting.Instance.LoadConfiguration();
 
             SteamVR2Input.Instance.KeyDownEvent += ControllerAction_KeyDown;
+            SteamVR2Input.Instance.KeyUpEvent += ControllerAction_KeyUp;
 
-            //コントローラ取得
-            inputManager = new GameObject(nameof(InputManager)).AddComponent<InputManager>();
-            inputManager.BeginGameCoreScene();
         }
 
-        private async void ControllerAction_KeyDown(object sender, OVRKeyEventArgs e)
+
+        bool IsLeftTrigerClick = false;
+        bool IsRightTigerClick = false;
+        bool oldIsRightTigerClick = false;
+
+
+        Int32 RightTriggerDownCount;
+        float RightTriggerDownTime;
+
+        private void ControllerAction_KeyUp(object sender, OVRKeyEventArgs e)
         {
-            Debug.Log($"ControllerAction {e.Name}");
+            if (e.IsTouch) return;
+
+            if (e.IsLeft && e.Name.Contains("Trigger"))
+                IsLeftTrigerClick = false;
+            else if (!e.IsLeft && e.Name.Contains("Trigger"))
+                IsRightTigerClick = false;
+
+
+            //左手トリガー握りっぱなしで右トリガー3連続で入力されたらチェンジアニメーション
+            if (!IsLeftTrigerClick)
+            {
+                RightTriggerDownCount = 0;
+                RightTriggerDownTime = 0;
+            }
+
+
+            oldIsRightTigerClick = IsRightTigerClick;
+        }
+
+        private void ControllerAction_KeyDown(object sender, OVRKeyEventArgs e)
+        {
+            if (e.IsTouch) return;
+            if (e.Name.Contains("Touch")) return;
+
+            Debug.Log($" e.Name { e.Name}");
+            if (e.IsLeft && e.Name.Contains("Trigger"))
+                IsLeftTrigerClick = true;
+            else if (!e.IsLeft && e.Name.Contains("Trigger"))
+                IsRightTigerClick = true;
+
+            //左手トリガー握りっぱなしで右トリガー3連続で入力されたらチェンジアニメーション
+            if (!IsLeftTrigerClick)
+            {
+                RightTriggerDownCount = 0;
+                RightTriggerDownTime = 0;
+            }
+
+            //トリガークリックされたときに経過時間到達していた場合キャンセル
+            if (RightTriggerDownTime > 0.5f)
+            {
+                RightTriggerDownCount = 0;
+                RightTriggerDownTime = 0;
+            }
+
+
+            Debug.Log($"ControllerAction {IsLeftTrigerClick} {IsRightTigerClick} {RightTriggerDownTime}");
+            if (IsLeftTrigerClick && IsRightTigerClick)
+            {
+                RightTriggerDownCount += 1;
+                RightTriggerDownTime = 0;   //最後に入力があってから１秒経過しても３回目入力しなかった場合のみクリアするようにする
+
+                if (RightTriggerDownCount >= 3)
+                {
+                    RightTriggerDownCount = 0;
+
+                    ToggleAnimation();
+                }
+            }
+
+
+
+
+            oldIsRightTigerClick = IsRightTigerClick;
+
         }
 
         bool isShift = false;
@@ -86,7 +153,6 @@ namespace VMC_MaterialChange
 
             if (isShift && isKey)
             {
-                OldInput = true;
                 if (e.KeyCode == (int)Keys.D1) SetOtherMaterial(otherMaterials);
                 else if (e.KeyCode == (int)Keys.D2) SetOtherMaterial(otherMaterials2);
                 else if (e.KeyCode == (int)Keys.D3) SetOtherMaterial(otherMaterials3);
@@ -110,50 +176,22 @@ namespace VMC_MaterialChange
                 isKey = false;
         }
 
-
-
-        Int32 RightTriggerDownCount;
-        float RightTriggerDownTime;
-        /// <summary>
-        /// 1秒以内に3回右トリガーされたら、次のアニメーションへ遷移
-        /// </summary>
-        private void ControllerInput()
+        private void Update()
         {
-            if (inputManager.GetLeftGripClicked())
-
-            if (inputManager.GetRightGripClicked())
-
-
-            if ((bool)(inputManager.GetRightTriggerClicked()))
-            {
-                RightTriggerDownCount += 1;
-                RightTriggerDownTime = 0;   //最後に入力があってから１秒経過しても３回目入力しなかった場合のみクリアするようにする
-
-                if (RightTriggerDownCount >= 3)
-                {
-                    RightTriggerDownCount = 0;
-
-                    ToggleAnimation();
-                }
-
-            }
-
-
             if (RightTriggerDownCount != 0)
+            {
                 RightTriggerDownTime += Time.deltaTime;
 
-            if (RightTriggerDownTime > 1.0f)
-            {
-                RightTriggerDownCount = 0;
-                RightTriggerDownTime = 0;
+                //トリガークリックされたときに経過時間到達していた場合キャンセル
+                if (RightTriggerDownTime > 0.5f)
+                {
+                    RightTriggerDownCount = 0;
+                    RightTriggerDownTime = 0;
+                }
             }
         }
 
-        bool OldInput = false;
-        void Update()
-        {
-            ControllerInput();
-        }
+
         private void OnEnable()
         {
         }
