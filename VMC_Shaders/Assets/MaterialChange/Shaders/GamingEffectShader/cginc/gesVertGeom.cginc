@@ -239,7 +239,7 @@ void geom(triangle v2g IN[3], inout TriangleStream<VertexOutput> tristream)
             o.faceSign = 1;
             o.lightIntensityIfBackface = 1;
             o.isBackface = 0;
-
+            
             // Pass-through the shadow coordinates if this pass has shadows.
             #if defined (SHADOWS_SCREEN) || ( defined (SHADOWS_DEPTH) && defined (SPOT) ) || defined (SHADOWS_CUBE)
             o._ShadowCoord = IN[i]._ShadowCoord;

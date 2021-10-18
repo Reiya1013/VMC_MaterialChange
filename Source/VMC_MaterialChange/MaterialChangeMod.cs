@@ -12,7 +12,7 @@ namespace VMC_MaterialChange
 
     [VMCPlugin(
     Name: "MaterialChange",
-    Version: "0.0.6",
+    Version: "0.0.7",
     Author: "Reiya",
     Description: "アバターのMaterialを変更することで、MToon以外のshaderを使えるようにします",
     AuthorURL: "https://twitter.com/Reiya__",

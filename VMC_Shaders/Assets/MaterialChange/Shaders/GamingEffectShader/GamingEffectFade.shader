@@ -505,6 +505,14 @@ Shader "BeatSaber/GamingEffect/_Extra/EmissiveFreak/Fade" {
 
           // Legacy MatCap/ShadeCap Calculation
           [Toggle(_)]_UsePositionRelatedCalc ("[Mat/ShadowCap] Use Position Related Calc (Experimental)", Int) = 0
+          
+        [SToggle]
+		_EnableGeometry     ("Enable Geometry"					, int) = 0
+		_Destruction		("Destruction"						, Range(0,1))= 0.0
+		_ScaleFactor		("Scale Factor"						, Range(0,1))= 0.0
+		_RotationFactor		("Rotation Factor"					, Range(0,1))= 0.0
+		_PositionFactor		("Position Factor"					, Range(0,1))= 0.0
+		_PositionAdd		("Position AddPoint"				, Range(-1,1))= 0.0
 
         // Version
         [HideInInspector]_Version("[hidden] Version", int) = 0
@@ -592,6 +600,10 @@ Shader "BeatSaber/GamingEffect/_Extra/EmissiveFreak/Fade" {
 
             ENDCG
         }
+
+
+
+
     }
     FallBack "Standard"
 
